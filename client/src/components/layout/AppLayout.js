@@ -59,7 +59,8 @@ export default function AppLayout() {
               <MenuIcon />
             </IconButton>
             
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography component="div" sx={{ flexGrow: 1 }}>
+                <div className="sidebar_logo"><h3>SupplyChain</h3></div>
             </Typography>
             {auth && (
               <div>
