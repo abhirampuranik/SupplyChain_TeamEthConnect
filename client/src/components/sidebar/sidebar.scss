@@ -9,7 +9,8 @@
     &__logo {
         display: grid;
         place-items: center;
-        height: 120px;
+        height: 70px;
+        padding-bottom: 10px;
         font-size: 1.5rem;
         font-weight: 700;
         font-family: 'Mochiy Pop P one', sans-serif;
@@ -18,6 +19,7 @@
 
     &__menu {
         position: relative;
+
 
         &__item {
             display: flex;

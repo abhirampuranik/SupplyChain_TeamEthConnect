@@ -38,7 +38,7 @@
   "sourceMap": "67:176:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:176:1;;;;;;;",
   "deployedSourceMap": "67:176:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:176:1;;;;;;;;;;;;;;;;;;;;;;;;114:53;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;114:53:1;;;;;;;;;;;;;;;;;:::i;:::-;;171:70;;;:::i;:::-;;;;;;;;;;;;;;;;;;;114:53;161:1;148:10;:14;;;;114:53;:::o;171:70::-;207:4;226:10;;219:17;;171:70;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <8.10.0;\n\ncontract SimpleStorage {\n  uint storedData;\n\n  function set(uint x) public {\n    storedData = x;\n  }\n\n  function get() public view returns (uint) {\n    return storedData;\n  }\n}\n",
-  "sourcePath": "/home/akanksha/SupplyChain_Hashcode/contracts/SimpleStorage.sol",
+  "sourcePath": "/home/abhirampuranik/SupplyChain_TeamEthConnect/contracts/SimpleStorage.sol",
   "ast": {
     "absolutePath": "project:/contracts/SimpleStorage.sol",
     "exportedSymbols": {
@@ -601,12 +601,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x57B24c331868eD49401aa53D7f55BcC67493feFa",
-      "transactionHash": "0x2f7c6286eaf12354aa8e93c006d623c889b7c05ce82dad69594d857030b3594b"
+      "address": "0xa7D604798Cf74553010F1d098E68e7635663656C",
+      "transactionHash": "0xf951f0cb0f4c873bd273ef38ee2ce5defd68314ca5973f77499deb08a39e29c2"
     }
   },
-  "schemaVersion": "3.4.3",
-  "updatedAt": "2022-02-10T05:34:56.969Z",
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-02-10T16:08:32.841Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
