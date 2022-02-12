@@ -84,7 +84,7 @@ import UserDash from "./dashboards/userDashboard"
 import ManuDash from "./dashboards/manufacturerDashboard"
 import TranDash from "./dashboards/transporterDashboard"
 import RegionDash from "./dashboards/regionDashboard"
-import DistDash from "./dashboards/regionDashboard"
+import DistDash from "./dashboards/distributorDashboard"
 
 
 
@@ -101,8 +101,9 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/udashboard' element={<UserDash />} />
                     <Route path='/mdashboard' element={<ManuDash />} />
-                    <Route path='/ddashboard' element={<TranDash />} />
-                    <Route path='/tdashboard' element={<DistDash />} />
+                    <Route path='/tdashboard' element={<TranDash />} />
+                    <Route path='/ddashboard' element={<DistDash />} />
+                    <Route path='/rdashboard' element={<RegionDash />} />
 
 
                 </Route>

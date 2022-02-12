@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom'
 
 import getWeb3 from "../getWeb3";
 import { useState, useEffect } from 'react';
@@ -75,6 +76,15 @@ export default function SignIn() {
     console.log(details)
   };
 
+  const navigate = useNavigate()
+  function redirect()
+  {
+    const Dexists = contract.methods.Exists(account).call();
+      if(Dexists){
+        navigate('/rdashboard');
+      }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -130,10 +140,17 @@ export default function SignIn() {
             >
               Sign Up
             </Button>
-            
+            <Button 
+              onClick={redirect}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 3 }}
+            >
+              Login
+            </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   );

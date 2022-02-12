@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom'
 
 import getWeb3 from "../getWeb3";
 import { useState, useEffect } from 'react';
@@ -80,6 +81,15 @@ function seeDetails()
     // console.log(details)
   };
 
+  const navigate = useNavigate()
+  function redirect()
+  {
+    const Texists = contract.methods.Exists(account).call();
+      if(Texists){
+        navigate('/tdashboard');
+      }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -140,6 +150,14 @@ function seeDetails()
             >
               Sign Up
             </Button>
+            <Button 
+              onClick={redirect}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 3 }}
+            >
+              Login
+            </Button>
             {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -154,9 +172,10 @@ function seeDetails()
             </Grid> */}
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
       <Button onClick={seeDetails}>Click</Button>
+      
     </ThemeProvider>
   );
 }
