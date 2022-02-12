@@ -171,7 +171,40 @@ app.post('/api/requestregion', async (req, res) => {
 })
 
 
+app.get('/api/sum', async (req, res) => {
+	const token = req.headers['x-access-token']
 
+	try {
+		// const decoded = jwt.verify(token, 'secret123')
+		// const email = decoded.email
+		// const user = await User.findOne({ email: email })
+
+		// const userMap = Region.find({}, function (err, res) {
+		// 	if (err) {
+		// 		console.log(err);
+		// 	  } else {
+		// 		console.log(userMap)
+		// 		return res.json({ status: 'ok', userMap: userMap })
+		// 	  }
+		// });
+		Region.find({}, function(err, result) {
+			if (err) {
+			  console.log(err);
+			} else {
+			//   res.json({ status: 'ok', userMap: result });
+			var totalcount = 0;
+			result.forEach(element => {
+				totalcount+= element.count;
+				
+			});
+			  res.json({ status: 'ok', totalcount: totalcount });
+			}
+		  });
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+})
 
 
 

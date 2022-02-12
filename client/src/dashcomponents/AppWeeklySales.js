@@ -4,6 +4,9 @@ import androidFilled from '@iconify/icons-ant-design/android-filled';
 // material
 import { alpha, styled } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
+
+  
+import { useState , useEffect} from 'react'
 // utils
 // import { fShortenNumber } from '../../../utils/formatNumber';
 
@@ -35,9 +38,39 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 714000;
+
+
+
 
 export default function AppWeeklySales() {
+
+  const [TOTAL, setTotal] = useState(0);
+
+  const request =async()=>{
+    const req = await fetch('http://localhost:1337/api/sum', {
+			headers: {
+				'x-access-token': localStorage.getItem('token'),
+			},
+		})
+		const data = await req.json()
+		if (data.status === 'ok') {
+      console.log(data)
+			setTotal(data.totalcount)
+		} else {
+			alert(data.error)
+		}
+  }
+  useEffect(()=>{
+
+    const load = async()=>{
+      request();
+    }
+
+    load();
+
+    
+},[]);
+
   return (
     <RootStyle>
       <IconWrapperStyle>
