@@ -71,31 +71,32 @@ export default function SignIn() {
       password: data.get("Password_Id"),
       flag: "m",     
       });
-    const response = await fetch('http://localhost:1337/api/manufacturerregister', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        companyname: data.get("Company_name"),
-        manufacturerID: data.get("manufacture_id"),
-        email: data.get("email"),
-        password: data.get("Password_Id"),
-        flag: "m",     
-      }),
-    })
-      const Data = await response.json()
-      console.log(Data)
+    // const response = await fetch('http://localhost:1337/api/manufacturerregister', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     companyname: data.get("Company_name"),
+    //     manufacturerID: data.get("manufacture_id"),
+    //     email: data.get("email"),
+    //     password: data.get("Password_Id"),
+    //     flag: "m",     
+    //   }),
+    // })
+    //   const Data = await response.json()
+    //   console.log(Data)
 
-		if (Data.status === 'ok') {
-			navigate('/login')
-		}
+		// if (Data.status === 'ok') {
+		// 	navigate('/login')
+		// }
 
-    contract.methods.setManuDetails(data.get('Company_name'),data.get('manufacture_id'),data.get('email'))
+    await contract.methods.setManuDetails(data.get('Company_name'),data.get('manufacture_id'),data.get('email'))
     .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
 
-    const details = contract.methods.getDistDetails(account).call()
+    const details = contract.methods.getManuDetails(account).call()
     console.log(details)
+    navigate('/mdashboard')
 
   };
 
