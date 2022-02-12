@@ -51,5 +51,9 @@ contract Transporter {
         quantity = _quantity;
     }
 
+    function getQuantity() public view returns (string memory){
+        return quantity;
+    }
+
 
 }

@@ -66,7 +66,7 @@ function OrderItem({ item, isLast }) {
       <TimelineContent>
         <Typography variant="subtitle2"><h2>{title}</h2></Typography>
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-          <h4>blah blah</h4>
+          <h4></h4>
         </Typography>
       </TimelineContent>
     </TimelineItem>
