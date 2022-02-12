@@ -119,15 +119,29 @@ app.post('/api/mlogin', async (req, res) => {
 // 	Meme.findOneAndUpdate({_id :id}, {$inc : {'post.likes' : 1}}).exec(...);
 // });
 
-app.get('/api/quote', async (req, res) => {
+app.get('/api/orders', async (req, res) => {
 	const token = req.headers['x-access-token']
 
 	try {
-		const decoded = jwt.verify(token, 'secret123')
-		const email = decoded.email
-		const user = await User.findOne({ email: email })
+		// const decoded = jwt.verify(token, 'secret123')
+		// const email = decoded.email
+		// const user = await User.findOne({ email: email })
 
-		return res.json({ status: 'ok', quote: user.quote })
+		// const userMap = Region.find({}, function (err, res) {
+		// 	if (err) {
+		// 		console.log(err);
+		// 	  } else {
+		// 		console.log(userMap)
+		// 		return res.json({ status: 'ok', userMap: userMap })
+		// 	  }
+		// });
+		Region.find({}, function(err, result) {
+			if (err) {
+			  console.log(err);
+			} else {
+			  res.json({ status: 'ok', userMap: result });
+			}
+		  });
 	} catch (error) {
 		console.log(error)
 		res.json({ status: 'error', error: 'invalid token' })
@@ -155,6 +169,11 @@ app.post('/api/requestregion', async (req, res) => {
 		res.json({ status: 'error', error: 'invalid token' })
 	}
 })
+
+
+
+
+
 
 app.listen(1337, () => {
 	console.log('Server started on 1337')

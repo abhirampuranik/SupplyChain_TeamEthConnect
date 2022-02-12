@@ -72,6 +72,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 
 export default function DashboardApp() {
   const [account,setAccount]=useState('');
@@ -80,6 +88,7 @@ export default function DashboardApp() {
   const [selectedTranId, setTranId]=useState(null);
   const [tranList, setTranList] = useState([]);
   const [tranIdList,setTranIdList] = useState([]);
+  const [tableData, settableData] = useState({});
   
   const loadContract= async()=>{
     const web3 = await getWeb3();
@@ -111,10 +120,35 @@ export default function DashboardApp() {
     .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
   };
 
+  
+
+
+  async function getTable() {
+		const req = await fetch('http://localhost:1337/api/orders', {
+			headers: {
+				'x-access-token': localStorage.getItem('token'),
+			},
+		})
+		const data = await req.json()
+		if (data.status === 'ok') {
+      console.log(data)
+			settableData(data.userMap)
+		} else {
+			alert(data.error)
+		}
+	}
 
 
   useEffect(()=>{
-    loadContract();
+
+    const load = async()=>{
+      loadContract();
+      getTable();
+    }
+
+    load();
+
+    
 },[]);
 
 const confirmSelection = async(event)=>{
@@ -127,9 +161,6 @@ const confirmSelection = async(event)=>{
   console.log(selectedTranId)
 }
 
-const submit = async(event)=>{
-  
-}
 
 function seeDetails()
 {
@@ -147,6 +178,7 @@ const chooseSelect = async() =>{
   setTranId(traAdd[0]);
 }
   
+  console.log(tableData)
 
   return (
     <Page title="Dashboard | Minimal-UI">
@@ -158,8 +190,12 @@ const chooseSelect = async() =>{
           <Grid item xs={12} sm={6} md={3}>
             <AppWeeklySales />
           </Grid>
-          {/* <Grid item xs={12} sm={6} md={3}>
-            <AppNewUsers />
+
+{/* 
+          <Grid item xs={12} sm={6} md={3}>
+            <div>
+            
+            </div>
           </Grid> */}
           {/* <Grid item xs={12} sm={6} md={3}>
             <AppItemOrders />
@@ -168,13 +204,46 @@ const chooseSelect = async() =>{
             <AppBugReports />
           </Grid> */}
 
+
+
           <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline />
           </Grid>
 
-          {/* <Grid item xs={12} md={6} lg={8}>
-            <AppTasks />
-          </Grid> */}
+          <Grid item xs={9} md={6} lg={8}>
+          <div>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 500 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Region</TableCell>
+                    <TableCell align="right">Count</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {/* {console.log(tableData)}
+                  {tableData.map((row) => (
+                    <TableRow
+                      key={row._id}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">{row._id}</TableCell>
+                      <TableCell align="right">{row.region}</TableCell>
+                      <TableCell align="right">{row.count}</TableCell>
+
+                    </TableRow>
+                  ))} */}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+          
+
+          
+            {/* <AppTasks /> */}
+          </Grid>
+
+
         </Grid>
 
         <Button onClick={seeDetails}>Click</Button>
@@ -217,7 +286,7 @@ const chooseSelect = async() =>{
         </Box>
       </Box>
       
-      {/* <Button onClick={submit}>Submit</Button> */}
+      {/* <Button onClick={getTable}>Submit</Button> */}
 
 
       </Container>
