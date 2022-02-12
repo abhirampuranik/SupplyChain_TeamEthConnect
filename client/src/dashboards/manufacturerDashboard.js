@@ -62,8 +62,45 @@ import Page from '../dashcomponents/Page';
 import AppWeeklySales from '../dashcomponents/AppWeeklySales';
 import AppOrderTimeline from '../dashcomponents/AppOrderTimeline';
 // ----------------------------------------------------------------------
+import getWeb3 from "../getWeb3";
+import { useState, useEffect } from 'react';
+import document from "../contracts/Transporter.json";
+import Button from '@mui/material/Button';
 
 export default function DashboardApp() {
+  const [account,setAccount]=useState('');
+  const [contract,setContract]=useState(null);
+  
+  const loadContract= async()=>{
+    const web3 = await getWeb3();
+    const accounts = await web3.eth.getAccounts()
+    console.log(accounts)
+    setAccount(accounts[0])
+
+    const networkId = await web3.eth.net.getId()
+    const networkData = document.networks[networkId]
+      if(networkData){            
+          const abi = document.abi
+          const address = networkData.address
+          const c = new web3.eth.Contract(abi, address)
+          setContract(c)
+      }else{
+          window.alert('Smart Contract not deployed to detected network')
+      }
+  }
+
+
+  useEffect(()=>{
+  loadContract();
+},[]);
+
+function seeDetails()
+{
+  console.log("hello")
+  const details = contract.methods.getTranNames().call()
+  console.log(details)
+}
+
   return (
     <Page title="Dashboard | Minimal-UI">
       <Container maxWidth="xl">
@@ -93,6 +130,9 @@ export default function DashboardApp() {
           </Grid> */}
         </Grid>
       </Container>
+      <Button onClick={seeDetails}>Click</Button>
+
     </Page>
+    
   );
 }

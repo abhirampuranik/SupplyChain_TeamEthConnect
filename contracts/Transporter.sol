@@ -10,6 +10,8 @@ contract Transporter {
     }
 
     mapping (address => transporterDetails) public GroupOfTransporters;
+    address[] TranAdd;
+    string[] TranNames;
 
     function setTranDetails(string memory _Name, string memory _Id, string memory _Email) public {
         GroupOfTransporters[msg.sender] = transporterDetails({
@@ -18,6 +20,9 @@ contract Transporter {
             Email: _Email,
             isValue: true
         });
+
+        TranAdd.push(msg.sender);
+        TranNames.push(_Name);
     }
 
     function getTranDetails(address user) public view returns(transporterDetails memory){
@@ -28,4 +33,13 @@ contract Transporter {
         if(GroupOfTransporters[user].isValue == true) return true;
         return false;
     }
+
+    function getTranAdd() public view returns (address[] memory){
+        return TranAdd;
+    }
+
+    function getTranNames() public view returns (string[] memory){
+        return TranNames;
+    }
+
 }
