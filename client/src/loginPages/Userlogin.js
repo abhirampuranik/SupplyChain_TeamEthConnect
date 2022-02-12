@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -27,6 +28,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate()
+
+
+
   const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -35,7 +40,10 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('Password_Id'),
     });
-    const response = await fetch('http://localhost:1337/api/mlogin', {
+
+
+
+    const response = await fetch('http://localhost:1337/api/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -49,13 +57,9 @@ export default function SignIn() {
 		const DATA = await response.json()
 
 		if (DATA.user) {
-			localStorage.setItem('token', data.user)
-      console.log(DATA)
-			alert('Login successful')
-      
-      window.location.href = '/udashboard'
-      
-			
+			localStorage.setItem('token', DATA.user);
+			alert('Login successful');
+			navigate('/udashboard');
 		} else {
 			alert('Please check your username and password')
 		}

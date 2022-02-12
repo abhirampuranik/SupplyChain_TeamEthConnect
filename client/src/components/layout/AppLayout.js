@@ -24,7 +24,7 @@ import regional from "../../contracts/Regional.json";
 
 export default function AppLayout() {
     const [auth, setAuth] = React.useState(true);
-    const [sidebarOn, setsidebarOn] = React.useState(true);
+    const [sidebarOn, setsidebarOn] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     // const [account,setAccount]=useState('');
