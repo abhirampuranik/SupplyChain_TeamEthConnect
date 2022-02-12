@@ -1,6 +1,6 @@
 import React from "react";
 
 function UserDash(){
-    return <h1>Helloooo Brooo</h1>
+    return <h1>User Dash</h1>
 }
 export default UserDash

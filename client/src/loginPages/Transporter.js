@@ -58,6 +58,11 @@ export default function SignIn() {
 
   const contract=loadContract();
 },[]);
+function seeDetails()
+  {
+    const details = contract.methods.getTranDetails(account).call()
+    console.log(details)
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -151,6 +156,7 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <Button onClick={seeDetails}>Click</Button>
     </ThemeProvider>
   );
 }

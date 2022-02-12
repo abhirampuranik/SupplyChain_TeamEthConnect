@@ -6,6 +6,7 @@ contract Regional {
         string Name;
         string Id;
         string Email;
+        bool isValue;
     }
 
     mapping (address => regionalDetails) public GroupOfRegional;
@@ -14,11 +15,18 @@ contract Regional {
         GroupOfRegional[msg.sender] = regionalDetails({
             Name: _Name,
             Id: _Id,
-            Email: _Email
+            Email: _Email,
+            isValue: true
         });
     }
 
     function getRegDetails(address user) public view returns(regionalDetails memory){
         return GroupOfRegional[user];
     }
+
+    function Exists(address user) public view returns(bool exists) {
+        if(GroupOfRegional[user].isValue == true) return true;
+        return false;
+    }
+
 }

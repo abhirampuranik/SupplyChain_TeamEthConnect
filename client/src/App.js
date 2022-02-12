@@ -82,6 +82,10 @@ import User from './loginPages/User'
 import Login from './loginPages/Userlogin'
 import UserDash from "./dashboards/userDashboard"
 import ManuDash from "./dashboards/manufacturerDashboard"
+import TranDash from "./dashboards/transporterDashboard"
+import RegionDash from "./dashboards/regionDashboard"
+import DistDash from "./dashboards/regionDashboard"
+
 
 
 function App() {
@@ -97,6 +101,9 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/udashboard' element={<UserDash />} />
                     <Route path='/mdashboard' element={<ManuDash />} />
+                    <Route path='/ddashboard' element={<TranDash />} />
+                    <Route path='/tdashboard' element={<DistDash />} />
+
 
                 </Route>
             </Routes>

@@ -50,10 +50,15 @@ export default function SignIn() {
           const abi = document.abi
           const address = networkData.address
           const contract = new web3.eth.Contract(abi, address)
-          setContract(contract)
+          await setContract(contract)
       }else{
           window.alert('Smart Contract not deployed to detected network')
       }
+      // const Mexists = contract.methods.Exists(account).call();
+      // if(Mexists){
+      //   navigate('/mdashboard');
+      // }
+      
     }
 
     const contract=loadContract();
@@ -94,14 +99,25 @@ export default function SignIn() {
     await contract.methods.setManuDetails(data.get('Company_name'),data.get('manufacture_id'),data.get('email'))
     .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
 
-    const details = contract.methods.getManuDetails(account).call()
-    console.log(details)
-    navigate('/mdashboard')
+    
+    // navigate('/mdashboard')
+    
 
   };
 
-  
+  function seeDetails()
+  {
+    const details = contract.methods.getManuDetails(account).call()
+    console.log(details)
+  }
 
+  function redirect()
+  {
+    const Mexists = contract.methods.Exists(account).call();
+      if(Mexists){
+        navigate('/mdashboard');
+      }
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -189,6 +205,9 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <Button onClick={seeDetails}>Click</Button>
+      <Button onClick={redirect}>here</Button>
+
     </ThemeProvider>
   );
 }
