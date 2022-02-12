@@ -14,6 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
 
+import getWeb3 from "../getWeb3";
+import { useState, useEffect } from 'react';
+import document from "../contracts/Manufacturer.json";
 
 
 function Copyright(props) {
@@ -30,6 +33,32 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+
+  const [account,setAccount]=useState('');
+  const [contract,setContract]=useState(null);
+
+  useEffect(()=>{
+    const loadContract= async()=>{
+    const web3 = await getWeb3();
+    const accounts = await web3.eth.getAccounts()
+    console.log(accounts)
+    setAccount(accounts[0])
+
+    const networkId = await web3.eth.net.getId()
+    const networkData = document.networks[networkId]
+      if(networkData){            
+          const abi = document.abi
+          const address = networkData.address
+          const contract = new web3.eth.Contract(abi, address)
+          setContract(contract)
+      }else{
+          window.alert('Smart Contract not deployed to detected network')
+      }
+    }
+
+    const contract=loadContract();
+  },[]);
+
   const navigate = useNavigate()
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -62,6 +91,11 @@ export default function SignIn() {
 			navigate('/login')
 		}
 
+    contract.methods.setManuDetails(data.get('Company_name'),data.get('manufacture_id'),data.get('email'))
+    .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+
+    const details = contract.methods.getDistDetails(account).call()
+    console.log(details)
 
   };
 
