@@ -9,9 +9,14 @@ contract Transporter {
         bool isValue;
     }
 
+    string quantity;
+    
+
     mapping (address => transporterDetails) public GroupOfTransporters;
     address[] TranAdd;
     string[] TranNames;
+
+    
 
     function setTranDetails(string memory _Name, string memory _Id, string memory _Email) public {
         GroupOfTransporters[msg.sender] = transporterDetails({
@@ -41,5 +46,10 @@ contract Transporter {
     function getTranNames() public view returns (string[] memory){
         return TranNames;
     }
+
+    function getPackage(string memory _quantity, string memory _ManuID) public {
+        quantity = _quantity;
+    }
+
 
 }

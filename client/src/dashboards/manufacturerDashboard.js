@@ -66,10 +66,20 @@ import getWeb3 from "../getWeb3";
 import { useState, useEffect } from 'react';
 import document from "../contracts/Transporter.json";
 import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+
 
 export default function DashboardApp() {
   const [account,setAccount]=useState('');
   const [contract,setContract]=useState(null);
+  const [selectedTran, setTran]=useState(null);
+  const [selectedTranId, setTranId]=useState(null);
+  const [tranList, setTranList] = useState([]);
+  const [tranIdList,setTranIdList] = useState([]);
   
   const loadContract= async()=>{
     const web3 = await getWeb3();
@@ -89,17 +99,54 @@ export default function DashboardApp() {
       }
   }
 
+  const handleChange = (event) => {
+    setTran(event.target.value);
+  };
+
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log(data.get('quantity') +" "+ selectedTran);
+    await contract.methods.getPackage(data.get('quantity')," ")
+    .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+  };
+
+
 
   useEffect(()=>{
-  loadContract();
+    loadContract();
 },[]);
+
+const confirmSelection = async(event)=>{
+  for(var k=0;k<tranList.length;k++){
+    if(tranList[k]===selectedTran){
+      setTranId(tranIdList[k])
+      break
+    }
+  }  
+  console.log(selectedTranId)
+}
+
+const submit = async(event)=>{
+  
+}
 
 function seeDetails()
 {
   console.log("hello")
   const details = contract.methods.getTranNames().call()
-  console.log(details)
+  console.log(selectedTran)
 }
+
+const chooseSelect = async() =>{
+  const traList = await contract.methods.getTranNames().call();
+  setTranList(traList);
+  setTran(traList[0]);
+  const traAdd = await contract.methods.getTranAdd().call();
+  setTranIdList(traAdd);
+  setTranId(traAdd[0]);
+}
+  
 
   return (
     <Page title="Dashboard | Minimal-UI">
@@ -129,8 +176,53 @@ function seeDetails()
             <AppTasks />
           </Grid> */}
         </Grid>
+
+        <Button onClick={seeDetails}>Click</Button>
+        <Button onClick={chooseSelect}>Choose</Button>
+        <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Transporter</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={selectedTran}
+            label="Age"
+            onChange={handleChange}
+          >
+            {tranList.map((name)=>(                        
+              <MenuItem value={name}>{name}</MenuItem>                     
+            ))}    
+          </Select>
+        </FormControl>
+
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>  
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="quantity"
+              label="Quantity"
+              id="quantity"
+              autoComplete="quantity"
+            />
+            <Button onClick={confirmSelection}>Confirm</Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 3 }}
+            >
+              Submit
+            </Button>
+        </Box>
+      </Box>
+      
+      {/* <Button onClick={submit}>Submit</Button> */}
+
+
       </Container>
-      <Button onClick={seeDetails}>Click</Button>
+      
+
 
     </Page>
     

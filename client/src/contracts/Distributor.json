@@ -380,7 +380,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 394,
+                          "referencedDeclaration": 408,
                           "src": "413:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1406,7 +1406,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 394,
+                                      "referencedDeclaration": 408,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1981,12 +1981,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xb5F037a9bCe3EDB190aC52F608b26F562bCc017a",
-      "transactionHash": "0xac75535dce29164baaf13194a308f11bcb7d4ea02815000c98c31ae29d4eb331"
+      "address": "0xd31f9E96D435a0aa8ff703d76c0494Df8c6Ec9C2",
+      "transactionHash": "0xfebf91fdc30c387982dc795fd544cf2394b669ff1a9892c35ee3b1083d212288"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-02-12T18:13:58.727Z",
+  "updatedAt": "2022-02-12T19:53:29.187Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
