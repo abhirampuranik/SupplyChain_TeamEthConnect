@@ -12,16 +12,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      {'Already have an account? '}
+      <Link color="inherit" href="/login">
+        Login
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -29,15 +28,47 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      username: data.get("User_name"),
+      aadhar: data.get("Aadhar_id"),
+      email: data.get("email"),
+      region: data.get("Region_Name"),
+      password: data.get("Password_Id")
     });
+
+    const response = await fetch('http://localhost:1337/api/register', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+        username: data.get("User_name"),
+        aadhar: data.get("Aadhar_id"),
+        email: data.get("email"),
+        region: data.get("Region_Name"),
+        password: data.get("Password_Id"),
+        flag: 'u',
+			}),
+		})
+
+		const Data = await response.json()
+
+		if (Data.status === 'ok') {
+			navigate('/login')
+		}
+
+
   };
+
+
+  // function 
 
   return (
     <ThemeProvider theme={theme}>
@@ -64,7 +95,7 @@ export default function SignIn() {
               fullWidth
               id="User_name"
               label="User Name"
-              name="user"
+              name="User_name"
               //autoComplete="company"
               autoFocus
             />
@@ -75,6 +106,7 @@ export default function SignIn() {
               name="Aadhar_id"
               label="Aadhar Number"
               id="Aadhar_id"
+              // onChange={(e)=>(e.target.value)}
               //autoComplete="current-password"
             />
             <TextField
@@ -99,6 +131,17 @@ export default function SignIn() {
               autoFocus
             />
 
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="Password_Id"
+              label="Password"
+              name="Password_Id"
+              type = "password"
+              autoFocus
+            />
+
 
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -109,9 +152,12 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 3 }}
+              // onClick={}
             >
               Sign Up
             </Button>
+
+            
             {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

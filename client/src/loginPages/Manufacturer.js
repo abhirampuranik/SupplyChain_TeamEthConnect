@@ -12,16 +12,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom'
+
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      {'Already have an account? '}
+      <Link color="inherit" href="/login">
+        Login
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -29,15 +30,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const navigate = useNavigate()
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+      companyName: data.get("Company_name"),
+      manufactureID: data.get("manufacture_id"),
+      email: data.get("email"),
+      password: data.get("Password_Id"),
+      flag: "m",     
+      });
+    const response = await fetch('http://localhost:1337/api/manufacturerregister', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        companyname: data.get("Company_name"),
+        manufacturerID: data.get("manufacture_id"),
+        email: data.get("email"),
+        password: data.get("Password_Id"),
+        flag: "m",     
+      }),
+    })
+      const Data = await response.json()
+      console.log(Data)
+
+		if (Data.status === 'ok') {
+			navigate('/login')
+		}
+
+
   };
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -64,7 +92,7 @@ export default function SignIn() {
               fullWidth
               id="Company_name"
               label="Company Name"
-              name="company"
+              name="Company_name"
               //autoComplete="company"
               autoFocus
             />
@@ -91,6 +119,17 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="Password_Id"
+              label="Password"
+              name="Password_Id"
+              type = "password"
+              autoFocus
+            />
+
             <Button
               type="submit"
               fullWidth

@@ -12,14 +12,14 @@ const sidebarNavItems = [
     {
         display: 'Transporter',
         icon: <i className='bx bx-star'></i>,
-        to: '/started',
-        section: 'started'
+        to: '/transporter',
+        section: 'transporter'
     },
     {
         display: 'Distributor',
         icon: <i className='bx bx-calendar'></i>,
-        to: '/calendar',
-        section: 'calendar'
+        to: '/distributor',
+        section: 'distributor'
     },
     {
         display: 'Regional Centre',
@@ -32,6 +32,12 @@ const sidebarNavItems = [
         icon: <i className='bx bx-user'></i>,
         to: '/user',
         section: 'user'
+    },
+    {
+        display:'Login',
+        icon: <i className='bx bx-user'></i>,
+        to: '/login',
+        section: 'login'
     },
 ]
 

@@ -15,29 +15,52 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
   return (
-    <div></div>
-    // <Typography variant="body2" color="text.secondary" align="center" {...props}>
-    //   {'Copyright © '}
-    //   <Link color="inherit" href="https://mui.com/">
-    //     Your Website
-    //   </Link>{' '}
-    //   {new Date().getFullYear()}
-    //   {'.'}
-    // </Typography>
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Create New Account '}
+      <Link color="inherit" href="/user">
+        Sign up
+      </Link>{' '}
+    </Typography>
   );
 }
 
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
       email: data.get('email'),
-      password: data.get('password'),
+      password: data.get('Password_Id'),
     });
+    const response = await fetch('http://localhost:1337/api/mlogin', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email: data.get('email'),
+				password:data.get('Password_Id'),
+			}),
+		})
+
+		const DATA = await response.json()
+
+		if (DATA.user) {
+			localStorage.setItem('token', data.user)
+      console.log(DATA)
+			alert('Login successful')
+      
+      window.location.href = '/udashboard'
+      
+			
+		} else {
+			alert('Please check your username and password')
+		}
+
+
   };
 
   return (
@@ -56,26 +79,10 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign Up
+            Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="region_Name"
-              label="Region Name"
-              name="region_Name"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="region_Id"
-              label="Region Id"
-              id="region_Id"
-            />
+           
             <TextField
               margin="normal"
               required
@@ -86,16 +93,45 @@ export default function SignIn() {
               id="email"
               autoComplete="email"
             />
-            
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="Password_Id"
+              label="Password"
+              name="Password_Id"
+              type = "password"
+              autoFocus
+            />
+
+
+            {/* <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 3 }}
             >
-              Sign Up
+              Login
             </Button>
+
             
+            {/* <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid> */}
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
