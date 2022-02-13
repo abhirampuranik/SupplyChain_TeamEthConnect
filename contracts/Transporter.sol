@@ -11,7 +11,6 @@ contract Transporter {
 
     string quantity;
     
-
     mapping (address => transporterDetails) public GroupOfTransporters;
     address[] TranAdd;
     string[] TranNames;
@@ -54,6 +53,4 @@ contract Transporter {
     function getQuantity() public view returns (string memory){
         return quantity;
     }
-
-
 }

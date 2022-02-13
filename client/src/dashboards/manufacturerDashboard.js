@@ -80,6 +80,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import tracking from "../contracts/tracking.json";
 
 export default function DashboardApp() {
   const [account,setAccount]=useState('');
@@ -89,6 +90,7 @@ export default function DashboardApp() {
   const [tranList, setTranList] = useState([]);
   const [tranIdList,setTranIdList] = useState([]);
   const [tableData, settableData] = useState({});
+  const [trackContract, settrackContract]=useState(null);
   
   const loadContract= async()=>{
     const web3 = await getWeb3();
@@ -106,6 +108,16 @@ export default function DashboardApp() {
       }else{
           window.alert('Smart Contract not deployed to detected network')
       }
+
+      const tracknetworkData = tracking.networks[networkId]
+      if(tracknetworkData){            
+          const abi = tracking.abi
+          const address = tracknetworkData.address
+          const contract = new web3.eth.Contract(abi, address)
+          await settrackContract(contract)
+      }else{
+          window.alert('Smart Contract not deployed to detected network')
+      }
   }
 
   const handleChange = (event) => {
@@ -118,8 +130,15 @@ export default function DashboardApp() {
     console.log(data.get('quantity') +" "+ selectedTran);
     await contract.methods.getPackage(data.get('quantity')," ")
     .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+
+    await trackContract.methods.setmColor().send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+
+    const mc = await trackContract.methods.getmColor().call();
+    console.log(mc)
+
   };
 
+  
   
 
 
@@ -143,7 +162,7 @@ export default function DashboardApp() {
 
     const load = async()=>{
       loadContract();
-      getTable();
+      //getTable();
     }
 
     load();

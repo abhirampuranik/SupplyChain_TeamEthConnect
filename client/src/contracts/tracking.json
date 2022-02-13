@@ -1,0 +1,2039 @@
+{
+  "contractName": "tracking",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "setmColor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "settColor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "setdColor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "setrColor",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getmColor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "gettColor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getdColor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getrColor",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getdColor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getmColor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getrColor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"gettColor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"setdColor\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"setmColor\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"setrColor\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"settColor\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/tracking.sol\":\"tracking\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/tracking.sol\":{\"keccak256\":\"0x1302eb445dc731c401764e38e46335aeea3d286f5939824ae517475a7fdd36f4\",\"urls\":[\"bzz-raw://9ae738289aa332cb0361992436baf10fc2cab5989138f5779e40fd7d0c3f11b1\",\"dweb:/ipfs/QmaMjHKGdNg4rMWftbxZnAACSwSZeTBNYpUtKocT45a1Q6\"]}},\"version\":1}",
+  "bytecode": "0x608060405260008060006101000a81548160ff02191690831515021790555060008060016101000a81548160ff02191690831515021790555060008060026101000a81548160ff02191690831515021790555060008060036101000a81548160ff02191690831515021790555034801561007857600080fd5b50610271806100886000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c806359be66441161005b57806359be6644146100f1578063a439ac951461010f578063d26e508d14610119578063ec6c18be1461012357610088565b80630c3631bb1461008d5780631b17ca8b146100ab57806325ea60e3146100b55780634b59d412146100d3575b600080fd5b61009561012d565b6040516100a29190610207565b60405180910390f35b6100b3610143565b005b6100bd61015f565b6040516100ca9190610207565b60405180910390f35b6100db610175565b6040516100e89190610207565b60405180910390f35b6100f961018b565b6040516101069190610207565b60405180910390f35b6101176101a1565b005b6101216101be565b005b61012b6101db565b005b60008060039054906101000a900460ff16905090565b60016000806101000a81548160ff021916908315150217905550565b60008060019054906101000a900460ff16905090565b60008060009054906101000a900460ff16905090565b60008060029054906101000a900460ff16905090565b6001600060036101000a81548160ff021916908315150217905550565b6001600060026101000a81548160ff021916908315150217905550565b6001600060016101000a81548160ff021916908315150217905550565b61020181610222565b82525050565b600060208201905061021c60008301846101f8565b92915050565b6000811515905091905056fea365627a7a72315820946098dc53103857364515a727d1458df4fd4b4b3e2c94af57044a54dc9b87106c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100885760003560e01c806359be66441161005b57806359be6644146100f1578063a439ac951461010f578063d26e508d14610119578063ec6c18be1461012357610088565b80630c3631bb1461008d5780631b17ca8b146100ab57806325ea60e3146100b55780634b59d412146100d3575b600080fd5b61009561012d565b6040516100a29190610207565b60405180910390f35b6100b3610143565b005b6100bd61015f565b6040516100ca9190610207565b60405180910390f35b6100db610175565b6040516100e89190610207565b60405180910390f35b6100f961018b565b6040516101069190610207565b60405180910390f35b6101176101a1565b005b6101216101be565b005b61012b6101db565b005b60008060039054906101000a900460ff16905090565b60016000806101000a81548160ff021916908315150217905550565b60008060019054906101000a900460ff16905090565b60008060009054906101000a900460ff16905090565b60008060029054906101000a900460ff16905090565b6001600060036101000a81548160ff021916908315150217905550565b6001600060026101000a81548160ff021916908315150217905550565b6001600060016101000a81548160ff021916908315150217905550565b61020181610222565b82525050565b600060208201905061021c60008301846101f8565b92915050565b6000811515905091905056fea365627a7a72315820946098dc53103857364515a727d1458df4fd4b4b3e2c94af57044a54dc9b87106c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "68:709:6:-;;;103:5;91:17;;;;;;;;;;;;;;;;;;;;126:5;114:17;;;;;;;;;;;;;;;;;;;;149:5;137:17;;;;;;;;;;;;;;;;;;;;172:5;160:17;;;;;;;;;;;;;;;;;;;;68:709;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:709:6;;;;;;;",
+  "deployedSourceMap": "68:709:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:709:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;691:84;;;:::i;:::-;;;;;;;;;;;;;;;;184:55;;;:::i;:::-;;513:84;;;:::i;:::-;;;;;;;;;;;;;;;;424;;;:::i;:::-;;;;;;;;;;;;;;;;602;;;:::i;:::-;;;;;;;;;;;;;;;;364:55;;;:::i;:::-;;304;;;:::i;:::-;;244;;;:::i;:::-;;691:84;733:11;762:6;;;;;;;;;;;755:13;;691:84;:::o;184:55::-;228:4;221:6;;:11;;;;;;;;;;;;;;;;;;184:55::o;513:84::-;555:11;584:6;;;;;;;;;;;577:13;;513:84;:::o;424:::-;466:11;495:6;;;;;;;;;;;488:13;;424:84;:::o;602:::-;644:11;673:6;;;;;;;;;;;666:13;;602:84;:::o;364:55::-;408:4;401:6;;:11;;;;;;;;;;;;;;;;;;364:55::o;304:::-;348:4;341:6;;:11;;;;;;;;;;;;;;;;;;304:55::o;244:::-;288:4;281:6;;:11;;;;;;;;;;;;;;;;;;244:55::o;5:104:-1:-;82:21;97:5;82:21;;;77:3;70:34;64:45;;;116:201;;228:2;217:9;213:18;205:26;;242:65;304:1;293:9;289:17;280:6;242:65;;;199:118;;;;;324:85;;397:5;390:13;383:21;372:32;;366:43;;;",
+  "source": "pragma solidity >=0.4.21 <0.7.0;\npragma experimental ABIEncoderV2;\n\ncontract tracking{\n    bool mColor=false;\n    bool tColor=false;\n    bool dColor=false;\n    bool rColor=false;\n\n    function setmColor() public{\n        mColor=true;\n    }\n    function settColor() public{\n        tColor=true;\n    }\n    function setdColor() public{\n        dColor=true;\n    }\n    function setrColor() public{\n        rColor=true;\n    }\n    function getmColor() public view returns (bool exists){\n        return mColor;\n    }\n    function gettColor() public view returns (bool exists){\n        return tColor;\n    }\n    function getdColor() public view returns (bool exists){\n        return dColor;\n    }\n    function getrColor() public view returns (bool exists){\n        return rColor;\n    }\n}",
+  "sourcePath": "/home/akanksha/SupplyChain_Hashcode21/SupplyChain_TeamEthConnect/contracts/tracking.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/tracking.sol",
+    "exportedSymbols": {
+      "tracking": [
+        481
+      ]
+    },
+    "id": 482,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 403,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:6"
+      },
+      {
+        "id": 404,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:33:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 481,
+        "linearizedBaseContracts": [
+          481
+        ],
+        "name": "tracking",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 407,
+            "name": "mColor",
+            "nodeType": "VariableDeclaration",
+            "scope": 481,
+            "src": "91:17:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 405,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "91:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 406,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "103:5:6",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 410,
+            "name": "tColor",
+            "nodeType": "VariableDeclaration",
+            "scope": 481,
+            "src": "114:17:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 408,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "114:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 409,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "126:5:6",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 413,
+            "name": "dColor",
+            "nodeType": "VariableDeclaration",
+            "scope": 481,
+            "src": "137:17:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 411,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "137:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 412,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "149:5:6",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 416,
+            "name": "rColor",
+            "nodeType": "VariableDeclaration",
+            "scope": 481,
+            "src": "160:17:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 414,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "160:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 415,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "172:5:6",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 423,
+              "nodeType": "Block",
+              "src": "211:28:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 421,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 419,
+                      "name": "mColor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 407,
+                      "src": "221:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 420,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "228:4:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "221:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 422,
+                  "nodeType": "ExpressionStatement",
+                  "src": "221:11:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 424,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setmColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 417,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "202:2:6"
+            },
+            "returnParameters": {
+              "id": 418,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:6"
+            },
+            "scope": 481,
+            "src": "184:55:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 431,
+              "nodeType": "Block",
+              "src": "271:28:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 429,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 427,
+                      "name": "tColor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 410,
+                      "src": "281:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 428,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "288:4:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "281:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 430,
+                  "nodeType": "ExpressionStatement",
+                  "src": "281:11:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 432,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "settColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 425,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "262:2:6"
+            },
+            "returnParameters": {
+              "id": 426,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "271:0:6"
+            },
+            "scope": 481,
+            "src": "244:55:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 439,
+              "nodeType": "Block",
+              "src": "331:28:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 437,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 435,
+                      "name": "dColor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 413,
+                      "src": "341:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 436,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "348:4:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "341:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 438,
+                  "nodeType": "ExpressionStatement",
+                  "src": "341:11:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 440,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setdColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 433,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "322:2:6"
+            },
+            "returnParameters": {
+              "id": 434,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "331:0:6"
+            },
+            "scope": 481,
+            "src": "304:55:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 447,
+              "nodeType": "Block",
+              "src": "391:28:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 445,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 443,
+                      "name": "rColor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 416,
+                      "src": "401:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 444,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "408:4:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "401:11:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 446,
+                  "nodeType": "ExpressionStatement",
+                  "src": "401:11:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 448,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setrColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 441,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "382:2:6"
+            },
+            "returnParameters": {
+              "id": 442,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "391:0:6"
+            },
+            "scope": 481,
+            "src": "364:55:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 455,
+              "nodeType": "Block",
+              "src": "478:30:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 453,
+                    "name": "mColor",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 407,
+                    "src": "495:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 452,
+                  "id": 454,
+                  "nodeType": "Return",
+                  "src": "488:13:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 456,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getmColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 449,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "442:2:6"
+            },
+            "returnParameters": {
+              "id": 452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 451,
+                  "name": "exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 456,
+                  "src": "466:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 450,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "466:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "465:13:6"
+            },
+            "scope": 481,
+            "src": "424:84:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 463,
+              "nodeType": "Block",
+              "src": "567:30:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 461,
+                    "name": "tColor",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 410,
+                    "src": "584:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 460,
+                  "id": 462,
+                  "nodeType": "Return",
+                  "src": "577:13:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 464,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "gettColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 457,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:2:6"
+            },
+            "returnParameters": {
+              "id": 460,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 459,
+                  "name": "exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 464,
+                  "src": "555:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 458,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "555:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "554:13:6"
+            },
+            "scope": 481,
+            "src": "513:84:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 471,
+              "nodeType": "Block",
+              "src": "656:30:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 469,
+                    "name": "dColor",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 413,
+                    "src": "673:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 468,
+                  "id": 470,
+                  "nodeType": "Return",
+                  "src": "666:13:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 472,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getdColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 465,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "620:2:6"
+            },
+            "returnParameters": {
+              "id": 468,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 467,
+                  "name": "exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 472,
+                  "src": "644:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 466,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "644:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "643:13:6"
+            },
+            "scope": 481,
+            "src": "602:84:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 479,
+              "nodeType": "Block",
+              "src": "745:30:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 477,
+                    "name": "rColor",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 416,
+                    "src": "762:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 476,
+                  "id": 478,
+                  "nodeType": "Return",
+                  "src": "755:13:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 480,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getrColor",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 473,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "709:2:6"
+            },
+            "returnParameters": {
+              "id": 476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 475,
+                  "name": "exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 480,
+                  "src": "733:11:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 474,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "733:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "732:13:6"
+            },
+            "scope": 481,
+            "src": "691:84:6",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 482,
+        "src": "68:709:6"
+      }
+    ],
+    "src": "0:777:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/tracking.sol",
+      "exportedSymbols": {
+        "tracking": [
+          481
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".21",
+            "<",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 403,
+        "name": "PragmaDirective",
+        "src": "0:32:6"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 404,
+        "name": "PragmaDirective",
+        "src": "33:33:6"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            481
+          ],
+          "name": "tracking",
+          "scope": 482
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "mColor",
+              "scope": 481,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 405,
+                "name": "ElementaryTypeName",
+                "src": "91:4:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "66616c7365",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "false"
+                },
+                "id": 406,
+                "name": "Literal",
+                "src": "103:5:6"
+              }
+            ],
+            "id": 407,
+            "name": "VariableDeclaration",
+            "src": "91:17:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "tColor",
+              "scope": 481,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 408,
+                "name": "ElementaryTypeName",
+                "src": "114:4:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "66616c7365",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "false"
+                },
+                "id": 409,
+                "name": "Literal",
+                "src": "126:5:6"
+              }
+            ],
+            "id": 410,
+            "name": "VariableDeclaration",
+            "src": "114:17:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "dColor",
+              "scope": 481,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 411,
+                "name": "ElementaryTypeName",
+                "src": "137:4:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "66616c7365",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "false"
+                },
+                "id": 412,
+                "name": "Literal",
+                "src": "149:5:6"
+              }
+            ],
+            "id": 413,
+            "name": "VariableDeclaration",
+            "src": "137:17:6"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "rColor",
+              "scope": 481,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 414,
+                "name": "ElementaryTypeName",
+                "src": "160:4:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "66616c7365",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "false"
+                },
+                "id": 415,
+                "name": "Literal",
+                "src": "172:5:6"
+              }
+            ],
+            "id": 416,
+            "name": "VariableDeclaration",
+            "src": "160:17:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setmColor",
+              "scope": 481,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 417,
+                "name": "ParameterList",
+                "src": "202:2:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 418,
+                "name": "ParameterList",
+                "src": "211:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 407,
+                              "type": "bool",
+                              "value": "mColor"
+                            },
+                            "id": 419,
+                            "name": "Identifier",
+                            "src": "221:6:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 420,
+                            "name": "Literal",
+                            "src": "228:4:6"
+                          }
+                        ],
+                        "id": 421,
+                        "name": "Assignment",
+                        "src": "221:11:6"
+                      }
+                    ],
+                    "id": 422,
+                    "name": "ExpressionStatement",
+                    "src": "221:11:6"
+                  }
+                ],
+                "id": 423,
+                "name": "Block",
+                "src": "211:28:6"
+              }
+            ],
+            "id": 424,
+            "name": "FunctionDefinition",
+            "src": "184:55:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "settColor",
+              "scope": 481,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 425,
+                "name": "ParameterList",
+                "src": "262:2:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 426,
+                "name": "ParameterList",
+                "src": "271:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 410,
+                              "type": "bool",
+                              "value": "tColor"
+                            },
+                            "id": 427,
+                            "name": "Identifier",
+                            "src": "281:6:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 428,
+                            "name": "Literal",
+                            "src": "288:4:6"
+                          }
+                        ],
+                        "id": 429,
+                        "name": "Assignment",
+                        "src": "281:11:6"
+                      }
+                    ],
+                    "id": 430,
+                    "name": "ExpressionStatement",
+                    "src": "281:11:6"
+                  }
+                ],
+                "id": 431,
+                "name": "Block",
+                "src": "271:28:6"
+              }
+            ],
+            "id": 432,
+            "name": "FunctionDefinition",
+            "src": "244:55:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setdColor",
+              "scope": 481,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 433,
+                "name": "ParameterList",
+                "src": "322:2:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 434,
+                "name": "ParameterList",
+                "src": "331:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 413,
+                              "type": "bool",
+                              "value": "dColor"
+                            },
+                            "id": 435,
+                            "name": "Identifier",
+                            "src": "341:6:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 436,
+                            "name": "Literal",
+                            "src": "348:4:6"
+                          }
+                        ],
+                        "id": 437,
+                        "name": "Assignment",
+                        "src": "341:11:6"
+                      }
+                    ],
+                    "id": 438,
+                    "name": "ExpressionStatement",
+                    "src": "341:11:6"
+                  }
+                ],
+                "id": 439,
+                "name": "Block",
+                "src": "331:28:6"
+              }
+            ],
+            "id": 440,
+            "name": "FunctionDefinition",
+            "src": "304:55:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setrColor",
+              "scope": 481,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 441,
+                "name": "ParameterList",
+                "src": "382:2:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 442,
+                "name": "ParameterList",
+                "src": "391:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 416,
+                              "type": "bool",
+                              "value": "rColor"
+                            },
+                            "id": 443,
+                            "name": "Identifier",
+                            "src": "401:6:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 444,
+                            "name": "Literal",
+                            "src": "408:4:6"
+                          }
+                        ],
+                        "id": 445,
+                        "name": "Assignment",
+                        "src": "401:11:6"
+                      }
+                    ],
+                    "id": 446,
+                    "name": "ExpressionStatement",
+                    "src": "401:11:6"
+                  }
+                ],
+                "id": 447,
+                "name": "Block",
+                "src": "391:28:6"
+              }
+            ],
+            "id": 448,
+            "name": "FunctionDefinition",
+            "src": "364:55:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getmColor",
+              "scope": 481,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 449,
+                "name": "ParameterList",
+                "src": "442:2:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "exists",
+                      "scope": 456,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 450,
+                        "name": "ElementaryTypeName",
+                        "src": "466:4:6"
+                      }
+                    ],
+                    "id": 451,
+                    "name": "VariableDeclaration",
+                    "src": "466:11:6"
+                  }
+                ],
+                "id": 452,
+                "name": "ParameterList",
+                "src": "465:13:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 452
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 407,
+                          "type": "bool",
+                          "value": "mColor"
+                        },
+                        "id": 453,
+                        "name": "Identifier",
+                        "src": "495:6:6"
+                      }
+                    ],
+                    "id": 454,
+                    "name": "Return",
+                    "src": "488:13:6"
+                  }
+                ],
+                "id": 455,
+                "name": "Block",
+                "src": "478:30:6"
+              }
+            ],
+            "id": 456,
+            "name": "FunctionDefinition",
+            "src": "424:84:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "gettColor",
+              "scope": 481,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 457,
+                "name": "ParameterList",
+                "src": "531:2:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "exists",
+                      "scope": 464,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 458,
+                        "name": "ElementaryTypeName",
+                        "src": "555:4:6"
+                      }
+                    ],
+                    "id": 459,
+                    "name": "VariableDeclaration",
+                    "src": "555:11:6"
+                  }
+                ],
+                "id": 460,
+                "name": "ParameterList",
+                "src": "554:13:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 460
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 410,
+                          "type": "bool",
+                          "value": "tColor"
+                        },
+                        "id": 461,
+                        "name": "Identifier",
+                        "src": "584:6:6"
+                      }
+                    ],
+                    "id": 462,
+                    "name": "Return",
+                    "src": "577:13:6"
+                  }
+                ],
+                "id": 463,
+                "name": "Block",
+                "src": "567:30:6"
+              }
+            ],
+            "id": 464,
+            "name": "FunctionDefinition",
+            "src": "513:84:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getdColor",
+              "scope": 481,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 465,
+                "name": "ParameterList",
+                "src": "620:2:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "exists",
+                      "scope": 472,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 466,
+                        "name": "ElementaryTypeName",
+                        "src": "644:4:6"
+                      }
+                    ],
+                    "id": 467,
+                    "name": "VariableDeclaration",
+                    "src": "644:11:6"
+                  }
+                ],
+                "id": 468,
+                "name": "ParameterList",
+                "src": "643:13:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 468
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 413,
+                          "type": "bool",
+                          "value": "dColor"
+                        },
+                        "id": 469,
+                        "name": "Identifier",
+                        "src": "673:6:6"
+                      }
+                    ],
+                    "id": 470,
+                    "name": "Return",
+                    "src": "666:13:6"
+                  }
+                ],
+                "id": 471,
+                "name": "Block",
+                "src": "656:30:6"
+              }
+            ],
+            "id": 472,
+            "name": "FunctionDefinition",
+            "src": "602:84:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getrColor",
+              "scope": 481,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 473,
+                "name": "ParameterList",
+                "src": "709:2:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "exists",
+                      "scope": 480,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 474,
+                        "name": "ElementaryTypeName",
+                        "src": "733:4:6"
+                      }
+                    ],
+                    "id": 475,
+                    "name": "VariableDeclaration",
+                    "src": "733:11:6"
+                  }
+                ],
+                "id": 476,
+                "name": "ParameterList",
+                "src": "732:13:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 476
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 416,
+                          "type": "bool",
+                          "value": "rColor"
+                        },
+                        "id": 477,
+                        "name": "Identifier",
+                        "src": "762:6:6"
+                      }
+                    ],
+                    "id": 478,
+                    "name": "Return",
+                    "src": "755:13:6"
+                  }
+                ],
+                "id": 479,
+                "name": "Block",
+                "src": "745:30:6"
+              }
+            ],
+            "id": 480,
+            "name": "FunctionDefinition",
+            "src": "691:84:6"
+          }
+        ],
+        "id": 481,
+        "name": "ContractDefinition",
+        "src": "68:709:6"
+      }
+    ],
+    "id": 482,
+    "name": "SourceUnit",
+    "src": "0:777:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x40595f4A912Be5123EDE741b2Ed283dE08fbcCa9",
+      "transactionHash": "0xf640dc838cc1425e6d939f0b12cf1744206fca682c3a4ccc8731d64783f6f0ac"
+    }
+  },
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-02-12T23:53:52.791Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

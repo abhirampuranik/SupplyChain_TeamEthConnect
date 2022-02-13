@@ -19,6 +19,7 @@ import { useState, useEffect } from 'react';
 import document from "../contracts/Manufacturer.json";
 
 
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -36,6 +37,7 @@ export default function SignIn() {
 
   const [account,setAccount]=useState('');
   const [contract,setContract]=useState(null);
+  
 
   useEffect(()=>{
     const loadContract= async()=>{
@@ -54,6 +56,8 @@ export default function SignIn() {
       }else{
           window.alert('Smart Contract not deployed to detected network')
       }
+
+
       // const Mexists = contract.methods.Exists(account).call();
       // if(Mexists){
       //   navigate('/mdashboard');
