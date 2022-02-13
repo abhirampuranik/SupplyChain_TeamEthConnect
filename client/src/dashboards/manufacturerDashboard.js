@@ -82,6 +82,7 @@ import Paper from '@mui/material/Paper';
 
 import tracking from "../contracts/tracking.json";
 
+
 export default function DashboardApp() {
   const [account,setAccount]=useState('');
   const [contract,setContract]=useState(null);
@@ -89,7 +90,7 @@ export default function DashboardApp() {
   const [selectedTranId, setTranId]=useState(null);
   const [tranList, setTranList] = useState([]);
   const [tranIdList,setTranIdList] = useState([]);
-  const [tableData, settableData] = useState({});
+  const [tableData, settableData] = useState([]);
   const [trackContract, settrackContract]=useState(null);
   
   const loadContract= async()=>{
@@ -151,7 +152,7 @@ export default function DashboardApp() {
 		const data = await req.json()
 		if (data.status === 'ok') {
       console.log(data)
-			settableData(data.userMap)
+			settableData(Array.from(data.userMap))
 		} else {
 			alert(data.error)
 		}
@@ -162,7 +163,7 @@ export default function DashboardApp() {
 
     const load = async()=>{
       loadContract();
-      //getTable();
+      getTable();
     }
 
     load();
@@ -235,31 +236,26 @@ const chooseSelect = async() =>{
               <Table sx={{ minWidth: 500 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Region</TableCell>
-                    <TableCell align="right">Count</TableCell>
+                    <TableCell align="center">Region</TableCell>
+                    <TableCell align="center">Count</TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody>
-                  {/* {console.log(tableData)}
+                <TableBody>        
                   {tableData.map((row) => (
                     <TableRow
                       key={row._id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">{row._id}</TableCell>
-                      <TableCell align="right">{row.region}</TableCell>
-                      <TableCell align="right">{row.count}</TableCell>
+                      <TableCell align="center">{row.region}</TableCell>
+                      <TableCell align="center">{row.count}</TableCell>
 
                     </TableRow>
-                  ))} */}
+                  ))}
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
           
-
-          
-            {/* <AppTasks /> */}
           </Grid>
 
 

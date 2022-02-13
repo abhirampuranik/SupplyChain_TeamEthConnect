@@ -139,7 +139,8 @@ app.get('/api/orders', async (req, res) => {
 			if (err) {
 			  console.log(err);
 			} else {
-			  res.json({ status: 'ok', userMap: result });
+				
+			  res.json({ status: 'ok', userMap: result});
 			}
 		  });
 	} catch (error) {
