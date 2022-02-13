@@ -8,6 +8,7 @@ contract Distributor {
         string Email;
         bool isValue;
     }
+    string quantity;
 
     mapping (address => distributorDetails) public GroupOfDistributors;
 
@@ -27,6 +28,14 @@ contract Distributor {
     function Exists(address user) public view returns(bool exists) {
         if(GroupOfDistributors[user].isValue == true) return true;
         return false;
+    }
+
+    function getPackage(string memory _quantity) public {
+        quantity = _quantity;
+    }
+
+    function getQuantity() public view returns (string memory){
+        return quantity;
     }
 
 }

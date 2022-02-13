@@ -25,6 +25,9 @@ import androidFilled from '@iconify/icons-ant-design/android-filled';
 // material
 import { alpha, styled } from '@mui/material/styles';
 import { Card } from '@mui/material';
+import tracking from "../contracts/tracking.json";
+import distributor from "../contracts/Distributor.json";
+
 // ----------------------------------------------------------------------
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
@@ -54,6 +57,8 @@ export default function DashboardApp() {
   const [account,setAccount]=useState('');
   const [contract,setContract]=useState(null);
   const [quantity,setQuantity]=useState('0');
+  const [trackContract, settrackContract]=useState(null);
+  const [disContract, setdisContract]=useState(null);
 
   const loadContract= async()=>{
     const web3 = await getWeb3();
@@ -71,6 +76,30 @@ export default function DashboardApp() {
       }else{
           window.alert('Smart Contract not deployed to detected network')
       }
+
+
+      const tracknetworkData = tracking.networks[networkId]
+      if(tracknetworkData){            
+          const abi = tracking.abi
+          const address = tracknetworkData.address
+          const contract = new web3.eth.Contract(abi, address)
+          await settrackContract(contract)
+      }else{
+          window.alert('Smart Contract not deployed to detected network')
+      }
+
+
+      const disnetworkData = distributor.networks[networkId]
+      if(disnetworkData){            
+          const abi = distributor.abi
+          const address = disnetworkData.address
+          const contract = new web3.eth.Contract(abi, address)
+          await setdisContract(contract)
+      }else{
+          window.alert('Smart Contract not deployed to detected network')
+      }
+
+
   }
 
   useEffect(()=>{
@@ -82,6 +111,17 @@ export default function DashboardApp() {
     const q = await contract.methods.getQuantity().call()
     setQuantity(q)
   }
+
+  const sendQuantity = async(event)=>{
+    await disContract.methods.getPackage(quantity)
+    .send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+
+    await trackContract.methods.settColor().send({ from: account }).then((r)=>{}).catch(err=>console.log(err))
+
+    // const c = await trackContract.methods.gettColor().call();
+    // console.log(tc)
+  }
+
   return (
     <Page title="Dashboard | Minimal-UI">
       <Container maxWidth="xl">
@@ -121,6 +161,9 @@ export default function DashboardApp() {
         </Grid>
       </Container>
       <Button onClick={getRecieved}>Received count</Button>
+      <Button onClick={sendQuantity}>Send</Button>
+      
     </Page>
+  
   );
 }
